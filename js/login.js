@@ -1,8 +1,8 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-  
+document.addEventListener("DOMContentLoaded", function (e) {
+
 
 });
 function validarUsuario(valor) {
@@ -19,11 +19,21 @@ function validarContra(valor) {
         document.getElementById("error2").innerHTML = " ";
 
 };
-function abrirIndex(){
+
+
+
+function abrirIndex() {
     var user = document.getElementById('usuario').value
     var contra = document.getElementById('contra').value
-    if ( user!== "" && contra!== "") {
+   
+    
+    if (user !== "" && contra !== "") {
+        
         window.location.assign("index.html");
-    }else 
+        
+        
+        ;
+  } else
         document.getElementById("ok").innerHTML = "revise los datos";
 }
+
