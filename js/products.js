@@ -1,10 +1,10 @@
 
-var categoriesArray = [];
+var ProductsArray = [];
 
-function showCategoriesList(array){
+function showProductsList(array) {
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
         let category = array[i];
 
         htmlContentToAppend += `
@@ -16,39 +16,33 @@ function showCategoriesList(array){
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name +`</h4>
+                        <h4 class="mb-1">`+ category.name + `</h4>
                         <small class="text-muted">` + category.soldCount + ` artículos</small>
                     </div>
                      <div>` + category.description + `</div>
                      <br> 
-                     <div>` +`Costo:`+ `  `+ category.cost + `  ` + category.currency +  `</div>
+                     <div>` + `Costo:` + `  ` + category.cost + `  ` + category.currency + `</div>
                                      
                 </div>
             </div>
         </div>
         `
-       
+
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 
 }
-
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            ProductsArray = resultObj.data;
 
-
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
-        showSpinner();
-        if (resultObj.status === "ok")
-        {
-            categoriesArray = resultObj.data; 
-            hideSpinner();
-            //Muestro las categorías ordenadas
-            showCategoriesList(categoriesArray);
+           
+            showProductsList(ProductsArray);
         }
     });
 });
