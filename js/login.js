@@ -21,14 +21,14 @@ function validarContra(valor) {
 };
 
 
-sessionStorage.setItem("entro","falso")
+
 function abrirIndex() {
     var user = document.getElementById('usuario').value
     var contra = document.getElementById('contra').value
    
     if (user !== "" && contra !== "") {
        
-        sessionStorage.setItem("entro","verdadero")
+        
         window.location.assign("index.html");
 
     } else
