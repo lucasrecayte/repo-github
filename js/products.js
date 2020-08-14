@@ -5,23 +5,23 @@ function showProductsList(array) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
-        let category = array[i];
+        let product = array[i];
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row" > 
 
                 <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.desc + `" class="img-thumbnail">
+                    <img src="` + product.imgSrc + `" alt="` + product.desc + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name + `</h4>
-                        <small class="text-muted">` + category.soldCount + ` artículos</small>
+                        <h4 class="mb-1">`+ product.name + `</h4>
+                        <small class="text-muted">` + product.soldCount + ` artículos</small>
                     </div>
-                     <div>` + category.description + `</div>
+                     <div>` + product.description + `</div>
                      <br> 
-                     <div>` + `Costo:` + `  ` + category.cost + `  ` + category.currency + `</div>
+                     <div>` + `Costo:` + `  ` + product.cost + `  ` + product.currency + `</div>
                                      
                 </div>
             </div>

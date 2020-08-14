@@ -20,20 +20,17 @@ function validarContra(valor) {
 
 };
 
-
-
+var entro = false
 function abrirIndex() {
     var user = document.getElementById('usuario').value
     var contra = document.getElementById('contra').value
    
-    
     if (user !== "" && contra !== "") {
-        
+       
+        entro = true;
         window.location.assign("index.html");
-        
-        
-        ;
-  } else
+
+    } else
         document.getElementById("ok").innerHTML = "revise los datos";
 }
 

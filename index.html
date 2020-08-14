@@ -16,12 +16,22 @@
 </head>
 
 <body>
-  <script>
-    
-    window.location = "login.html"
-      
+  <script language="javascript" type="text/javascript">
 
-</script>
+   if (entro == false) {
+
+  window.location.assign("login.html")
+} else
+  if (entro == true) {
+
+    window.location.assign("index.html")
+  }
+
+
+
+
+
+  </script>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -113,6 +123,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/login.js"></script>
 </body>
 
 </html>
