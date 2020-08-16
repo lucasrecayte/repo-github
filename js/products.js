@@ -12,7 +12,7 @@ function showProductsList(array) {
             <div class="row" > 
 
                 <div class="col-3">
-                    <img src="` + product.imgSrc + `" alt="` + product.desc + `" class="img-thumbnail">
+                    <img src="` + product.imgSrc + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">

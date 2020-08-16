@@ -20,7 +20,7 @@ function validarContra(valor) {
 
 
 
-function abrirIndex() {
+function abrirPrincipal() {
     var user = document.getElementById('usuario').value
     var contra = document.getElementById('contra').value
 
