@@ -34,7 +34,7 @@ function showProductsList(array) {
 
 }
 
-function OrdenarAsc_O_Desc(data, key, orden) {            //encontre esta funcion en un foro de internet 
+function OrdenarAsc_O_Desc(data, key, orden) {            
     return data.sort(function (a, b) {                    
         var x = a[key],                                   
             y = b[key];                                  // la funcion "sort()" ordena la lista y recibe como parametro otra funcion

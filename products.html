@@ -21,16 +21,21 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <div id= "nombreUsuario" class="py-2 d-none d-md-inline-block" style ="color:white"> </div>
       </div>
     </nav>
     <div class="container p-5">
       <div class="row">
         <div class="text-center p-4">
           <h2>Productos</h2>
-          <button type="button" onclick="ordenarPrecioAsc()"> Ordenar por precio ascendente</button> 
-           <button type="button" onclick="ordenarPrecioDesc()"> Ordenar por precio descendente</button> 
-           <button type="button" onclick="ordenarPorRelevanciaDesc()"> Ordenar por relevancia descendente</button> 
+          
       </div>
+      <div>
+        <button type="button" onclick="ordenarPrecioAsc()"> Ordenar por precio ascendente</button> <br>
+        <button type="button" onclick="ordenarPrecioDesc()"> Ordenar por precio descendente</button> <br>
+        <button type="button" onclick="ordenarPorRelevanciaDesc()"> Ordenar por relevancia descendente</button> 
+      </div>
+     
        <div class="row">
               <div class="list-group" id="cat-list-container">
               </div>
