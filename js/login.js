@@ -23,11 +23,12 @@ function validarContra(valor) {
 function abrirPrincipal() {
     var user = document.getElementById('usuario').value
     var contra = document.getElementById('contra').value
+    var myStorage = window.sessionStorage;
 
     if (user !== "" && contra !== "") {
 
-
         window.location.assign("principal.html");
+        myStorage.setItem('keyuser', user);
 
     } else
         document.getElementById("ok").innerHTML = "revise los datos";

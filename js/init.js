@@ -39,6 +39,10 @@ var getJSONData = function(url){
         return result;
     });
 }
+function agregarNombreUsuario(){
+  document.getElementById("nombreUsuario").innerHTML = "Usuario: " + window.sessionStorage.getItem('keyuser')
+}
+agregarNombreUsuario()
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
