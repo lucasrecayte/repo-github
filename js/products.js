@@ -34,14 +34,14 @@ function showProductsList(array) {
 
 }
 
-function OrdenarAsc_O_Desc(data, key, orden) {            
-    return data.sort(function (a, b) {                    
-        var x = a[key],                                   
+function OrdenarAsc_O_Desc(data, key, orden) {
+    return data.sort(function (a, b) {
+        var x = a[key],
             y = b[key];                                  // la funcion "sort()" ordena la lista y recibe como parametro otra funcion
         if (orden === 'asc') {                           //y esta debe ser una función que reciba como                       
             return ((x < y) ? -1 : ((x > y) ? 1 : 0));   //parámetros dos elementos del tipo con el que trabaja el array y 
         }                                                //devuelva un número negativo si el primer elemento debe ordenarse antes que el segundo, 
-                                                         //cero si ambos elementos tienen igual orden, o un número positivo si el segundo elemento 
+        //cero si ambos elementos tienen igual orden, o un número positivo si el segundo elemento 
         if (orden === 'desc') {                          // debe ordenarse antes que el primero.
             return ((x > y) ? -1 : ((x < y) ? 1 : 0));   // Operador Ternario --> Tiene la forma de: condition ? value-if-true : value-if-false
         }
@@ -63,6 +63,15 @@ function ordenarPorRelevanciaDesc() {
     showProductsList(ProductsArray)
 }
 
+function filtrarPorPrecio() {
+    var min = document.getElementById("min").value,
+        max = document.getElementById("max").value;
+    var newArray = ProductsArray.filter(function (el) {
+        return el.cost <= max &&
+            el.cost >= min
+    });
+    showProductsList(newArray)
+}
 
 
 
