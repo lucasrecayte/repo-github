@@ -33,6 +33,42 @@ function showProductsList(array) {
     }
 
 }
+
+function OrdenarAsc_O_Desc(data, key, orden) {            //encontre esta funcion en un foro de internet 
+    return data.sort(function (a, b) {                    
+        var x = a[key],                                   
+            y = b[key];                                  // la funcion "sort()" ordena la lista y recibe como parametro otra funcion
+        if (orden === 'asc') {                           //y esta debe ser una función que reciba como                       
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));   //parámetros dos elementos del tipo con el que trabaja el array y 
+        }                                                //devuelva un número negativo si el primer elemento debe ordenarse antes que el segundo, 
+                                                         //cero si ambos elementos tienen igual orden, o un número positivo si el segundo elemento 
+        if (orden === 'desc') {                          // debe ordenarse antes que el primero.
+            return ((x > y) ? -1 : ((x < y) ? 1 : 0));   // Operador Ternario --> Tiene la forma de: condition ? value-if-true : value-if-false
+        }
+
+    });
+}
+function ordenarPrecioAsc() {
+    OrdenarAsc_O_Desc(ProductsArray, 'cost', 'asc');
+    showProductsList(ProductsArray)
+
+}
+function ordenarPrecioDesc() {
+    OrdenarAsc_O_Desc(ProductsArray, 'cost', 'desc');
+    showProductsList(ProductsArray)
+
+}
+function ordenarPorRelevanciaDesc() {
+    OrdenarAsc_O_Desc(ProductsArray, 'soldCount', 'desc')
+    showProductsList(ProductsArray)
+}
+
+
+
+
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -41,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             ProductsArray = resultObj.data;
 
-           
+
             showProductsList(ProductsArray);
         }
     });
