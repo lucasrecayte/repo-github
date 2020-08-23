@@ -26,38 +26,55 @@
       <div id="nombreUsuario" class="py-2 d-none d-md-inline-block" style="color:white"> </div>
     </div>
   </nav>
-  <div class="container p-5">
+
+
+  <div class="text-center p-4">
+    <h2>Productos</h2>
+  </div>
+
+  <div class="container">
+
     <div class="row">
-      <div class="text-center p-4">
-        <h2>Productos</h2>
-      </div>
-      <div class="row">
-        <div class="text-center p-4">
-          <button type="button"
-            style='width:290px; height:30px; border: 1px solid black; color:whitesmoke; background-color: lightslategray'
-            onclick="ordenarPrecioAsc()"> Ordenar por precio ascendente</button> <br>
-          <button type="button"
-            style='width:290px;  height:30px; border: 1px solid black; color:whitesmoke; background-color: lightslategray'
-            onclick="ordenarPrecioDesc()"> Ordenar por precio descendente</button> <br>
-          <button type="button"
-            style='width:290px;  height:30px; border: 1px solid black; color:whitesmoke; background-color: lightslategray'
-            onclick="ordenarPorRelevanciaDesc()"> Ordenar por relevancia descendente</button>
-        </div>
-        <div class="text-center p-4" id="filtro">
-          <form>
-            <p style="color:lightslategray">Filtrar por rango de precios</p>
-            <input id="min" type="number" placeholder="Mínimo" style="width: 100px" size = "8">
-            <input id="max" type="number" placeholder="Máximo" style="width: 100px" size = "8">
-            <button id="buscar" type="button" onclick = "filtrarPorPrecio()">Buscar</button>
-            <button id = "limpiar" class="btn btn-link btn-sm" onclick="limpiar()">Limpiar</button>
-          </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="list-group" id="cat-list-container">
+      <div class="col text-right">
+        <div class="btn-group btn-group-toggle mb-4">
+          <button type="button" style='width:200px;  ' class="btn btn-light active" onclick="ordenarPrecioAsc()">
+            Ordenar por precio ascendente</button>
+          <button type="button" style='width:200px; ' class="btn btn-light active" onclick="ordenarPrecioDesc()">
+            Ordenar por precio descendente</button>
+          <button type="button" style='width:200px; ' class="btn btn-light active" onclick="ordenarPorRelevanciaDesc()">
+            Ordenar por relevancia descendente</button>
         </div>
       </div>
     </div>
+
+    <div class="row justify-content-end">
+      <div class="col-md-6"></div>
+      <div class="col-md-6 col-sm-12 mb-1 container">
+        <div class="row container p-0 m-0">
+          <div class="col">
+            <p class="font-weight-normal text-right my-2">Filtrar por precio:</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="Mínimo" id="min">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="Máximo" id="max">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="buscar" onclick="filtrarPorPrecio()">Buscar</button>
+              <button class="btn btn-link btn-sm" id="limpiar" onclick="limpiar()">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="list-group" id="cat-list-container">
+      </div>
+    </div>
+
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
