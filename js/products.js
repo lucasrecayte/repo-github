@@ -41,7 +41,7 @@ function OrdenarAsc_O_Desc(data, key, orden) {
         if (orden === 'asc') {                           //y esta debe ser una función que reciba como                       
             return ((x < y) ? -1 : ((x > y) ? 1 : 0));   //parámetros dos elementos del tipo con el que trabaja el array y 
         }                                                //devuelva un número negativo si el primer elemento debe ordenarse antes que el segundo, 
-        //cero si ambos elementos tienen igual orden, o un número positivo si el segundo elemento 
+                                                         //cero si ambos elementos tienen igual orden, o un número positivo si el segundo elemento 
         if (orden === 'desc') {                          // debe ordenarse antes que el primero.
             return ((x > y) ? -1 : ((x < y) ? 1 : 0));   // Operador Ternario --> Tiene la forma de: condition ? value-if-true : value-if-false
         }
@@ -70,7 +70,13 @@ function filtrarPorPrecio() {
         return el.cost <= max &&
             el.cost >= min
     });
+    if (newArray.length != 0){
     showProductsList(newArray)
+    } else
+     document.getElementById("cat-list-container").innerHTML = ""
+}
+function limpiar(){
+    showProductsList(ProductsArray)
 }
 
 
