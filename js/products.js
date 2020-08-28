@@ -76,6 +76,9 @@ function filtrarPorPrecio() {
      document.getElementById("cat-list-container").innerHTML = ""
 }
 function limpiar(){
+    document.getElementById("min").value = ""
+    document.getElementById("max").value = ""
+
     showProductsList(ProductsArray)
 }
 
