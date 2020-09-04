@@ -72,6 +72,33 @@ function mostrarEstrellas() {
 
 }
 
+function Comentario() {
+    let nuevaLista = {};
+    let comentario = "";
+    let puntuacion = "";
+    let usuario = window.sessionStorage.getItem('keyuser');
+    var today = new Date();
+    let dia = today.getDate();
+    let mes = today.getMonth();
+    let ano = today.getFullYear();
+    let hora = today.getHours();
+    let minuto = today.getMinutes();
+    let segundo = today.getSeconds()
+    let fecha = ano + "-" + "0" + (mes + 1) + "-" + dia + " " + hora + ":" + minuto + ":" + segundo
+    comentario = document.getElementById("nuevoComentario").value;
+    puntuacion = document.getElementById("punt").value;
+    nuevaLista.score = puntuacion;
+    nuevaLista.description = comentario;
+    nuevaLista.user = usuario;
+    nuevaLista.dateTime = fecha;
+
+    console.log(nuevaLista)
+
+    comments.push(nuevaLista);
+    mostrarComentarios()
+
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
