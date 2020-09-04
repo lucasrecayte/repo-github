@@ -86,7 +86,7 @@ function Comentario() {
     let segundo = today.getSeconds()
     let fecha = ano + "-" + "0" + (mes + 1) + "-" + dia + " " + hora + ":" + minuto + ":" + segundo
     comentario = document.getElementById("nuevoComentario").value;
-    puntuacion = document.getElementById("punt").value;
+    puntuacion = parseInt(document.getElementById("punt").value);
     nuevaLista.score = puntuacion;
     nuevaLista.description = comentario;
     nuevaLista.user = usuario;
