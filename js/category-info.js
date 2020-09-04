@@ -1,4 +1,5 @@
-var category = {};
+var category = {}
+    
 
 function showImagesGallery(array){
 
@@ -42,4 +43,5 @@ document.addEventListener("DOMContentLoaded", function(e){
             showImagesGallery(category.images);
         }
     });
+    
 });

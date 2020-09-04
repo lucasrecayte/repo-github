@@ -8,7 +8,7 @@ function showProductsList(array) {
         let product = array[i];
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action"  onclick="irAProductsInfo()">
             <div class="row" > 
 
                 <div class="col-3">
@@ -80,6 +80,9 @@ function limpiar(){
     document.getElementById("max").value = ""
 
     showProductsList(ProductsArray)
+}
+function irAProductsInfo(){
+    window.location = "product-info.html";
 }
 
 
