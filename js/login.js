@@ -27,7 +27,7 @@ function abrirPrincipal() {
 
     if (user !== "" && contra !== "") {
 
-        window.location.assign("principal.html");
+        window.location.assign("index.html");
         myStorage.setItem('keyuser', user);
 
     } else

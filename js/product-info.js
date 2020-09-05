@@ -94,8 +94,13 @@ function Comentario() {
 
     console.log(nuevaLista)
 
-    comments.push(nuevaLista);
-    mostrarComentarios()
+    if (comentario != "" && document.getElementById("punt").value != "Elige...") {
+
+        comments.push(nuevaLista);
+        mostrarComentarios()
+        document.getElementById("alerta").innerHTML = ""
+    } else
+        document.getElementById("alerta").innerHTML = "Complete los campos"
 
 }
 
