@@ -72,6 +72,7 @@ function mostrarEstrellas() {
 
 }
 
+
 function Comentario() {
     let nuevaLista = {};
     let comentario = "";
@@ -83,7 +84,7 @@ function Comentario() {
     let ano = today.getFullYear();
     let hora = today.getHours();
     let minuto = today.getMinutes();
-    let segundo = today.getSeconds()
+    let segundo = today.getSeconds();
     let fecha = ano + "-" + "0" + (mes + 1) + "-" + dia + " " + hora + ":" + minuto + ":" + segundo
     comentario = document.getElementById("nuevoComentario").value;
     puntuacion = parseInt(document.getElementById("punt").value);
