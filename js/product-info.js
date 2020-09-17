@@ -4,21 +4,14 @@ var ProductsInfo = {},
 
 function mostrarImagenes(array) {
 
-    let htmlContentToAppend = "";
 
-    for (let i = 0; i < array.length; i++) {
-        let imagen = array[i];
+    
+    document.getElementById("im0").src = array[0];
+    document.getElementById("im1").src = array[1];
+    document.getElementById("im2").src = array[2];
+    document.getElementById("im3").src = array[3];
+    document.getElementById("im4").src = array[4];
 
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imagen + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("imagenes").innerHTML = htmlContentToAppend;
-    }
 
 }
 
