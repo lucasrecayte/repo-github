@@ -1,5 +1,6 @@
 var ProductsInfo = {},
-    comments = [];
+    comments = [],
+    relacionados = [];
 
 function mostrarImagenes(array) {
 
@@ -105,6 +106,39 @@ function Comentario() {
 
 }
 
+function ProductosRelacionados(array){
+    let htmlContentToAppend = "";
+    
+    for (let i = 1; i < array.length; i = i + 2) {
+        let Relacionada = array[i];
+
+        htmlContentToAppend += `
+        <div class="list-group-item list-group-item-action"  style="cursor: pointer" onclick = "irAProductsInfo()">
+            <div class="row" > 
+
+                <div class="col-3">
+                    <img src="` + Relacionada.imgSrc + `" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+Relacionada.name + `</h4>
+                        <small class="text-muted">` + Relacionada.soldCount + ` vendidos</small>
+                    </div>
+                     <div>` + Relacionada.description + `</div>
+                     <br> 
+                     <div>` + `Costo:` + `  ` + Relacionada.cost + `  ` + Relacionada.currency + `</div>
+                                     
+                </div>
+            </div>
+        </div>
+        `
+
+
+        document.getElementById("relacionados").innerHTML = htmlContentToAppend;
+    }
+}
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -119,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             document.getElementById("descripcion").innerHTML = ProductsInfo.description
             document.getElementById("costo").innerHTML = ProductsInfo.cost + " " + ProductsInfo.currency
             document.getElementById("cantidad").innerHTML = ProductsInfo.soldCount
-            document.getElementById("relacionados").innerHTML = ProductsInfo.relatedProducts
 
 
             mostrarImagenes(ProductsInfo.images);
@@ -130,6 +163,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok") {
             comments = resultObj.data
 
+        }
+    });
+
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            relacionados = resultObj.data;
+
+
+            ProductosRelacionados(relacionados)
         }
     });
 
