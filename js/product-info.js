@@ -4,8 +4,6 @@ var ProductsInfo = {},
 
 function mostrarImagenes(array) {
 
-
-    
     document.getElementById("im0").src = array[0];
     document.getElementById("im1").src = array[1];
     document.getElementById("im2").src = array[2];
