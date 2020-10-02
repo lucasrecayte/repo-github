@@ -40,42 +40,152 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
       <div class="btn-group">
-        <a type="button" id= "nombreUsuario" class="py-2 px-2 d-none d-md-inline-block" style ="color:white" href=""></a>
-        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a type="button" id="nombreUsuario" class="py-2 px-2 d-none d-md-inline-block" style="color:white" href=""></a>
+        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login.html"  onclick="borrarNombreUsuarioDelStorage()">Cerrar sesión</a>
+          <a class="dropdown-item" href="login.html" onclick="borrarNombreUsuarioDelStorage()">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="text-center p-4">
+    <h2>Mi carrito</h2>
   </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  <br><br>
+  <div class="container" style="background-color:lightgray; border: solid 3px black; margin-bottom: 40px;">
+    <div class="row">
+      <div class="col-6">
+        <br>
+        <hr style="border-color:black;">
+        <div class="container" >
+          <div class="row">
+            <div class="col-5">
+              <img id="imagencarrito" class="img-fluid w-100">
+            </div>
+            <div class="col-7">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h4>Nombre del Artículo:</h4>
+                  <p class="mb-3 text-muted text-uppercase media " id="nombreArticulo"> </p>
+                  <h4>Costo unitario:</h4>
+                  <p class="mb-3 text-muted text-uppercase media " id="precioArticulo"> </p>
+                  <h4>Cantidad:</h4>
+                  <input class="form-control" style="width: 150px;" type="number" placeholder="Cantidad" id="cantidadArticulos">
+                  <br>
+                  <h4>Costo unitario x cantidad:</h4>
+                  <p class="mb-3 text-muted text-uppercase media " id="CostoXcantidad"> aca hacer la cuenta</p>
+                  
+                </div>
+              </div>
+            </div>
+           </div>
+        </div>
+        <hr style="border-color:black;">
+        <div class="container" >
+          <div class="row">
+            <div class="col-5">
+              <img id="imagencarrito" class="img-fluid w-100">
+            </div>
+            <div class="col-7">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h4>Nombre del Artículo:</h4>
+                  <p class="mb-3 text-muted text-uppercase media " id="nombreArticulo"> </p>
+                  <h4>Costo unitario:</h4>
+                  <p class="mb-3 text-muted text-uppercase media " id="precioArticulo"> </p>
+                  <h4>Cantidad:</h4>
+                  <input class="form-control" style="width: 150px;" type="number" placeholder="Cantidad" id="cantidadArticulos">
+                  <br>
+                  <h4>Costo unitario x cantidad:</h4>
+                  <p class="mb-3 text-muted text-uppercase media " id="CostoXcantidad"> aca hacer la cuenta</p>
+                  
+                </div>
+              </div>
+            </div>
+           </div>
+        </div>
+        <hr style="border-color:black;">
+        <!-- si quiero mas articulos a partir de aca -->
+      </div>
+      
+      <div class="col-6" >
+
+        <div class="mb-3">
+          <div class="pt-4">
+  
+            <h4 class="mb-3">Costo total:</h4>
+  
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center px-84">
+                Cantidad de articulos en el carrito
+                <span id = "cantidadArtEnCarrito" >1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-84">
+                Subtotal
+                <span id = "subtotal">sumatoria de los costos total por artículo. </span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-84">
+                I.V.A
+                <span id="iva">calcular IVA</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-84">
+                Costo de envío
+                <span id = "envio">quiero envio?</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-84 mb-3">
+                <div>
+                  <strong>TOTAL</strong>
+                </div>
+                <span id = "total"><strong>hacer la suma de todo</strong></span>
+              </li>
+            </ul>
+  
+            <button type="button" class="btn btn-primary btn-block">Ir a formas de pago</button>
+            <a href = "categories.html">Seguir comprando</a>
+  
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+
     </div>
+    <div>
+      
+     </div>
+
   </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+  
+  
+
+
+
+
+
+        <div id="spinner-wrapper">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/dropzone.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/cart.js"></script>
 </body>
 
 </html>
