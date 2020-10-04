@@ -12,7 +12,7 @@ function cargarCarrito(producto1, producto2) {
     //cargo el segundo producto
     document.getElementById("imagencarrito2").src = producto2.src;
     document.getElementById("nombreArticulo2").innerHTML = producto2.name;                                                       //dolar a UYU 40
-    document.getElementById("precioArticulo2").innerHTML += producto2.currency + " " + producto2.unitCost + " " + "( UYU " + producto2.unitCost * 40 + ")";
+    document.getElementById("precioArticulo2").innerHTML += producto2.currency + " " + producto2.unitCost + " " + "( UYU " + producto2.unitCost * 40 + " )";
     document.getElementById("cantidadArticulos2").value = producto2.count; //ya tengo predefinda la cantidad
     //costo producto 2*cantidad de articulos 2
     document.getElementById("CostoXcantidad2").innerHTML = "UYU " + ProductoCostoXCantidad(producto2.unitCost * 40, producto2.count);

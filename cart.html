@@ -27,6 +27,95 @@
         font-size: 3.5rem;
       }
     }
+
+
+    /* todos los siguiente estilos fueron sacados de https://mdbootstrap.com/docs/jquery/forms/inputs/ */
+    /* y son para modificar el boton de la cantidad*/
+    .number-input input[type="number"] {
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    .number-input input[type=number]::-webkit-inner-spin-button,
+    .number-input input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .number-input {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .number-input button {
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0;
+      position: relative;
+    }
+
+    .number-input button:before,
+    .number-input button:after {
+      display: inline-block;
+      position: absolute;
+      content: '';
+      height: 2px;
+      transform: translate(-50%, -50%);
+    }
+
+    .number-input button.plus:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .number-input input[type=number] {
+      text-align: center;
+    }
+
+    .number-input.number-input {
+      border: 1px solid #ced4da;
+      width: 10rem;
+      border-radius: .25rem;
+    }
+
+    .number-input.number-input button {
+      width: 2.6rem;
+      height: .7rem;
+    }
+
+    .number-input.number-input button.minus {
+      padding-left: 10px;
+    }
+
+    .number-input.number-input button:before,
+    .number-input.number-input button:after {
+      width: .7rem;
+      background-color: #495057;
+    }
+
+    .number-input.number-input input[type=number] {
+      max-width: 4rem;
+      padding: .5rem;
+      border: 1px solid #ced4da;
+      border-width: 0 1px;
+      font-size: 1rem;
+      height: 2rem;
+      color: #495057;
+    }
+
+    @media not all and (min-resolution:.001dpcm) {
+      @supports (-webkit-appearance: none) and (stroke-color:transparent) {
+
+        .number-input.def-number-input.safari_only button:before,
+        .number-input.def-number-input.safari_only button:after {
+          margin-top: -.3rem;
+        }
+      }
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -78,10 +167,18 @@
                   <h5>Costo unitario:</h5>
                   <p class="mb-3 text-muted text-uppercase media " id="precioArticulo"> </p>
                   <h5>Cantidad:</h5>
-                  <input class="form-control" style="width: 150px;" type="number"  min="1" 
-                    id="cantidadArticulos" oninput=" modificarTodo()">
+                  <!-- lo obtuve de https://mdbootstrap.com/docs/jquery/forms/inputs/-->
+                  <div class="def-number-input number-input safari_only">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();modificarTodo()"
+                      class="minus"></button>
+                    <input class="form-control" min="1" name="quantity" id="cantidadArticulos" type="number"
+                      oninput="modificarTodo()">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();modificarTodo()"
+                      class="plus"></button>
+                  </div>
+                  <!--  -->
                   <br>
-                  <h5>Costo unitario x cantidad:</h5>
+                  <h5>Subtotal del artículo:</h5>
                   <p class="mb-3 text-muted text-uppercase media " id="CostoXcantidad"> aca hacer la cuenta</p>
 
                 </div>
@@ -104,10 +201,18 @@
                   <h5>Costo unitario:</h5>
                   <p class="mb-3 text-muted text-uppercase media " id="precioArticulo2"> </p>
                   <h5>Cantidad:</h5>
-                  <input class="form-control" style="width: 150px;" type="number"  min="1"
-                    id="cantidadArticulos2" oninput="modificarTodo()">
+                  <!-- lo obtuve de https://mdbootstrap.com/docs/jquery/forms/inputs/-->
+                  <div class="def-number-input number-input safari_only">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();modificarTodo()"
+                      class="minus"></button>
+                    <input class="form-control" min="1" name="quantity" id="cantidadArticulos2" type="number"
+                      oninput="modificarTodo()">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();modificarTodo()"
+                      class="plus"></button>
+                  </div>
+                  <!--  -->
                   <br>
-                  <h5>Costo unitario x cantidad:</h5>
+                  <h5>Subtotal del artículo:</h5>
                   <p class="mb-3 text-muted text-uppercase media " id="CostoXcantidad2"> aca hacer la cuenta</p>
 
                 </div>
@@ -170,17 +275,13 @@
 
             <div class="form-check form-check-inline">
               <input type="radio" name="entrega" class="form-check-input" id="local" oninput="modificarTodo()">
-              <img class="mr-2" width="45px"
-                src="img/local.png"
-                alt="local">
-                <p>Retiro en local</p>
+              <img class="mr-2" width="45px" src="img/local.png" alt="local">
+              <p>Retiro en local</p>
             </div>
             <hr>
             <div class="form-check form-check-inline">
               <input type="radio" name="entrega" class="form-check-input" id="domicilio" oninput="modificarTodo()">
-              <img class="mr-2" width="65px"
-                src="img/domicilio.jpg"
-                alt="domicilio">
+              <img class="mr-2" width="65px" src="img/domicilio.jpg" alt="domicilio">
               <p>Envío a domicilio</p>
             </div>
           </div>
@@ -206,7 +307,8 @@
               <li class="list-group-item d-flex justify-content-between align-items-center px-84">
                 Costo de envío (UYU)
                 <span id="envio"></span>
-              </li><hr>
+              </li>
+              <hr>
               <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-84 mb-3">
                 <div>
                   <strong>TOTAL (UYU)</strong>
@@ -215,7 +317,8 @@
               </li>
             </ul>
 
-            <button type="button" class="btn btn-primary btn-block" onclick="finalizarCompra()">Finalizar compra</button>
+            <button type="button" class="btn btn-primary btn-block" onclick="finalizarCompra()">Finalizar
+              compra</button>
             <div id="alerta"></div>
             <a href="categories.html">Seguir comprando</a>
 
