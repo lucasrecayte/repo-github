@@ -40,23 +40,22 @@ function ProductoCostoXCantidad(costo, cantidad) {
     return costo * cantidad
 }
 
-function modificarTodo() {   //funcion que al agregar un articulo o agregar envio a domicilio, modifica todo lo necesario
-    var costo = Carrito.articles[0].unitCost;
-    var costo2 = Carrito.articles[1].unitCost * 40; //conversion a UYU
+function modificarTodo() {   //funcion que al agregar un articulo o seleccionar un metodo de entrega, modifica todo lo necesario
+    var nuevoCosto = Carrito.articles[0].unitCost;
+    var nuevoCosto2 = Carrito.articles[1].unitCost * 40; //conversion a UYU
     var nuevaCantidad = parseFloat(document.getElementById("cantidadArticulos").value);
     var nuevaCantidad2 = parseFloat(document.getElementById("cantidadArticulos2").value);
-    var nuevoCostoXCantidad = ProductoCostoXCantidad(costo, nuevaCantidad);
-    var nuevoCostoXCantidad2 = ProductoCostoXCantidad(costo2, nuevaCantidad2);
+    var nuevoCostoXCantidad = ProductoCostoXCantidad(nuevoCosto, nuevaCantidad);
+    var nuevoCostoXCantidad2 = ProductoCostoXCantidad(nuevoCosto2, nuevaCantidad2);
     var nuevoSubtotal = subTotal(nuevoCostoXCantidad, nuevoCostoXCantidad2);
     var nuevoIVA = calcularIVA(nuevoSubtotal);
     var valorEnvio = 0;  //inicializo el envio en cero
     // modifico el costo * cantidad, cuando se introduce nueva cantidad en el 1er producto
     document.getElementById("CostoXcantidad").innerHTML = "UYU " + nuevoCostoXCantidad;
     // modifico el costo * cantidad, cuando se introduce nueva cantidad en el 2do producto
-
+    document.getElementById("CostoXcantidad2").innerHTML = "UYU " + nuevoCostoXCantidad2;
     //modifico la nueva cantidad de articulos
     document.getElementById("cantidadArtEnCarrito").innerHTML = nuevaCantidad + nuevaCantidad2
-    document.getElementById("CostoXcantidad2").innerHTML = "UYU " + nuevoCostoXCantidad2;
     // modifico el sub total con lo calculado
     document.getElementById("subtotal").innerHTML = nuevoSubtotal;
     // modifico el nuevo IVA
@@ -84,6 +83,7 @@ function finalizarCompra() {
   </div>
 </div>`
 }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
