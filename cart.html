@@ -151,81 +151,11 @@
   <br>
   <div class="container" style="background-color:lightgray; border: solid 3px black; margin-bottom: 40px;">
     <div class="row">
-      <div class="col-6">
+      <div class="col-6" id = "columnaArticulos"> <!--aca cambiar para hacerlo dinamico,primera columna-->
         <br>
-        <hr style="border-color:black;">
-        <div class="container"  name = "productoEnCarrito">
-          <div class="row">
-            <div class="col-5">
-              <img id="imagencarrito" class="img-fluid w-100">
-            </div>
-            <div class="col-7">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <h5>Nombre del artículo:</h5>
-                  <p class="mb-3 text-muted text-uppercase media " id="nombreArticulo"> </p>
-                  <h5>Costo unitario:</h5>
-                  <p class="mb-3 text-muted text-uppercase media " id="precioArticulo"> </p>
-                  <h5>Cantidad:</h5>
-                  <!-- lo obtuve de https://mdbootstrap.com/docs/jquery/forms/inputs/-->
-                  <div class="def-number-input number-input safari_only">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();modificarTodo()"
-                      class="minus"></button>
-                    <input class="form-control" min="1" name="quantity" id="cantidadArticulos" type="number"
-                      oninput="modificarTodo()">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();modificarTodo()"
-                      class="plus"></button>
-                  </div>
-                  <!--  -->
-                  <br>
-                  <h5>Subtotal del artículo:</h5>
-                  <p class="mb-3 text-muted text-uppercase media " id="CostoXcantidad"> aca hacer la cuenta</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr style="border-color:black;">
-        <!-- si quiero mas articulos a partir de aca -->
-        <div class="container" name = "productoEnCarrito">
-          <div class="row">
-            <div class="col-5">
-              <img id="imagencarrito2" class="img-fluid w-100">
-            </div>
-            <div class="col-7">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <h5>Nombre del artículo:</h5>
-                  <p class="mb-3 text-muted text-uppercase media " id="nombreArticulo2"> </p>
-                  <h5>Costo unitario:</h5>
-                  <p class="mb-3 text-muted text-uppercase media " id="precioArticulo2"> </p>
-                  <h5>Cantidad:</h5>
-                  <!-- lo obtuve de https://mdbootstrap.com/docs/jquery/forms/inputs/-->
-                  <div class="def-number-input number-input safari_only">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();modificarTodo()"
-                      class="minus"></button>
-                    <input class="form-control" min="1" name="quantity" id="cantidadArticulos2" type="number"
-                      oninput="modificarTodo()">
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp();modificarTodo()"
-                      class="plus"></button>
-                  </div>
-                  <!--  -->
-                  <br>
-                  <h5>Subtotal del artículo:</h5>
-                  <p class="mb-3 text-muted text-uppercase media " id="CostoXcantidad2"> aca hacer la cuenta</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr style="border-color:black;">
-        <!-- si quiero mas articulos a partir de aca -->
-        
-      </div>
-
-      <div class="col-6">
+       
+      </div><!--hasta aca cambiar para hacerlo dinamico-->
+      <div class="col-6"> 
         <!--segunda columna-->
         <br>
         <div class="card mb-3">
