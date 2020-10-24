@@ -151,11 +151,13 @@
   <br>
   <div class="container" style="background-color:lightgray; border: solid 3px black; margin-bottom: 40px;">
     <div class="row">
-      <div class="col-6" id = "columnaArticulos"> <!--aca cambiar para hacerlo dinamico,primera columna-->
+      <div class="col-6" id="columnaArticulos">
+        <!--aca cambiar para hacerlo dinamico,primera columna-->
         <br>
-       
-      </div><!--hasta aca cambiar para hacerlo dinamico-->
-      <div class="col-6"> 
+
+      </div>
+      <!--hasta aca cambiar para hacerlo dinamico-->
+      <div class="col-6">
         <!--segunda columna-->
         <br>
         <div class="card mb-3">
@@ -163,41 +165,71 @@
 
             <h5 class="mb-4">Métodos de pago:</h5>
 
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-secondary" id="botonAbrirModal" onclick="abrirModal()" >
+              Elegir método de pago
+            </button>
 
-            <div class="form-check form-check-inline">
-              <input type="radio" name="pago" class="form-check-input" id="tarjeta1">
-              <img class="mr-2" width="45px"
-                src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                alt="Visa">
+            <!-- Modal -->
+            
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="staticBackdropLabel"
+              aria-hidden="true" data-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Métodos de pago:</h5>
+                   
+                     
+                  </div>
+                  <div class="modal-body"><!-- cuerpo Modal -->
+
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="pago" class="form-check-input" id="tarjeta1" onchange="desplegarFormulario()">
+                      <img class="mr-2" width="45px"
+                        src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                        alt="Visa">
+                    </div>
+        
+        
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="pago" class="form-check-input" id="tarjeta2" onchange="desplegarFormulario()">
+                      <img class="mr-2" width="45px"
+                        src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                        alt="American Express">
+                    </div>
+        
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="pago" class="form-check-input" id="tarjeta3" onchange="desplegarFormulario()">
+                      <img class="mr-2" width="45px"
+                        src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                        alt="Mastercard">
+                    </div>
+        
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="pago" class="form-check-input" id="paypal" onchange="desplegarFormulario()">
+                      <img class="mr-2" width="45px"
+                        src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
+                        alt="PayPal acceptance mark">
+                    </div>
+        
+                    <div class="form-check form-check-inline">
+                      <input type="radio" name="pago" class="form-check-input" id="efectivo" onchange="desplegarFormulario()">
+                      <img class="mr-2" width="45px" src="img/efectivo.jpg" alt="efectivo">
+                    </div>
+                    <br>
+                    <div id="seleccionarPago" style = "color:red"></div>
+                    <div id = "formulario"> 
+                      
+                    </div>                  
+                  </div><!-- cuerpo Modal -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id = "botonEnModal" onclick="validarFormulario()">Cerrar</button>
+                    
+                  </div>
+                </div>
+              </div>
             </div>
-
-
-            <div class="form-check form-check-inline">
-              <input type="radio" name="pago" class="form-check-input" id="tarjeta2">
-              <img class="mr-2" width="45px"
-                src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                alt="American Express">
             </div>
-
-            <div class="form-check form-check-inline">
-              <input type="radio" name="pago" class="form-check-input" id="tarjeta3">
-              <img class="mr-2" width="45px"
-                src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                alt="Mastercard">
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input type="radio" name="pago" class="form-check-input" id="paypal">
-              <img class="mr-2" width="45px"
-                src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
-                alt="PayPal acceptance mark">
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input type="radio" name="pago" class="form-check-input" id="efectivo">
-              <img class="mr-2" width="45px" src="img/efectivo.jpg" alt="efectivo">
-            </div>
-          </div>
         </div>
 
         <div class="card mb-3">
@@ -205,17 +237,22 @@
             <h5 class="mb-4">Métodos de entrega:</h5>
 
             <div class="form-check form-check-inline">
-              <input type="radio" name="entrega" class="form-check-input" id="local" oninput="modificarTodo()">
+              <input type="radio" name="entrega" class="form-check-input" id="local" oninput="modificarTodo(),ElegirEnvio()">
               <img class="mr-2" width="45px" src="img/local.png" alt="local">
               <p>Retiro en local</p>
             </div>
             <hr>
             <div class="form-check form-check-inline">
-              <input type="radio" name="entrega" class="form-check-input" id="domicilio" oninput="modificarTodo()">
+              <input type="radio" name="entrega" class="form-check-input" id="domicilio" oninput="ElegirEnvio()">
               <img class="mr-2" width="65px" src="img/domicilio.jpg" alt="domicilio">
               <p>Envío a domicilio</p>
             </div>
+            <div id="envioAdomicilio">
+             
+
+            </div>
           </div>
+          
         </div>
 
         <div class="mb-3">
