@@ -308,8 +308,10 @@ function ElegirEnvio() {
 
 function finalizarCompra() {
   if ((document.getElementById("local").checked || (document.getElementById("domicilio").checked &&
-    (document.getElementsByName("tipoEnvio")[0].checked || document.getElementsByName("tipoEnvio")[1].checked ||
-      document.getElementsByName("tipoEnvio")[2].checked))) //condicion de haber seleccionado metodo de envio
+    ((document.getElementsByName("tipoEnvio")[0].checked || document.getElementsByName("tipoEnvio")[1].checked ||
+      document.getElementsByName("tipoEnvio")[2].checked) && (document.getElementById("direccionEnvio").value != "" &&
+        document.getElementById("departamento").value != "" &&
+        document.getElementById("codigoPostal").value != "")))) //condicion de haber seleccionado metodo de envio
     &&
     (document.getElementById("tarjeta1").checked || document.getElementById("tarjeta2").checked ||
       document.getElementById("tarjeta3").checked || document.getElementById("paypal").checked ||
