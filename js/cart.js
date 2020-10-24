@@ -307,38 +307,45 @@ function ElegirEnvio() {
 }
 
 function finalizarCompra() {
-  if ((document.getElementById("local").checked || (document.getElementById("domicilio").checked &&
-    ((document.getElementsByName("tipoEnvio")[0].checked || document.getElementsByName("tipoEnvio")[1].checked ||
-      document.getElementsByName("tipoEnvio")[2].checked) && (document.getElementById("direccionEnvio").value != "" &&
-        document.getElementById("departamento").value != "" &&
-        document.getElementById("codigoPostal").value != "")))) //condicion de haber seleccionado metodo de envio
-    &&
-    (document.getElementById("tarjeta1").checked || document.getElementById("tarjeta2").checked ||
-      document.getElementById("tarjeta3").checked || document.getElementById("paypal").checked ||
-      document.getElementById("efectivo").checked)) { // condicion de haber seleccionado metodo de pago
-    document.getElementById("alerta").innerHTML = `<div class="alert alert-success">
-        <strong> `+ mensajeExito.msg + `
-    </strong> 
-  </div>
-  </div>`
-  } else
-    document.getElementById("alerta").innerHTML = `<div class="alert alert-danger">
-      <strong> ¡Por favor, seleccione un método de envío y una forma de pago!
+  if (document.getElementById("cantidadArtEnCarrito").innerHTML === "") { //si ya borre todos los articulos, sale este mensaje
+    document.getElementById("alerta").innerHTML = `<div class="alert alert-danger" align="center">
+    <strong> ¡No hay artículos en el carrito!
+</strong> 
+</div>`} else { //si hay al menos un articulo, puedo seguir con la compra
+
+    if ((document.getElementById("local").checked || (document.getElementById("domicilio").checked &&
+      ((document.getElementsByName("tipoEnvio")[0].checked || document.getElementsByName("tipoEnvio")[1].checked ||
+        document.getElementsByName("tipoEnvio")[2].checked) && (document.getElementById("direccionEnvio").value != "" &&
+          document.getElementById("departamento").value != "" &&
+          document.getElementById("codigoPostal").value != "")))) //condicion de haber seleccionado metodo de envio
+      &&
+      (document.getElementById("tarjeta1").checked || document.getElementById("tarjeta2").checked ||
+        document.getElementById("tarjeta3").checked || document.getElementById("paypal").checked ||
+        document.getElementById("efectivo").checked)) { // condicion de haber seleccionado metodo de pago
+      document.getElementById("alerta").innerHTML = `<div class="alert alert-success" align="center">
+        <strong> `+ mensajeExito.msg + `</strong>
+        <br>
+        <a href="categories.html">¿Seguir comprando?</a>
+      </div>`;
+      $("#containerConTodoElCarrito").addClass("disabledbutton"); //se desactiva el carrito si se compro exitosamente
+    } else {
+      document.getElementById("alerta").innerHTML = `<div class="alert alert-danger" align="center">
+      <strong> ¡Por favor, seleccione un método de entrega y una forma de pago!
   </strong> 
-</div>
-</div>`
-  if (document.getElementById("direccionEnvio").value === "") {
-    document.getElementById("alertaDireccionEnvio").innerHTML = "Por favor, introduzca su dirección"
-  } else document.getElementById("alertaDireccionEnvio").innerHTML = "";
+</div>`}
 
-  if (document.getElementById("departamento").value === "") {
-    document.getElementById("alertaDepartamento").innerHTML = "Por favor, introduzca su departamento"
-  } else document.getElementById("alertaDepartamento").innerHTML = "";
+    if (document.getElementById("direccionEnvio").value === "") {
+      document.getElementById("alertaDireccionEnvio").innerHTML = "Por favor, introduzca su dirección"
+    } else document.getElementById("alertaDireccionEnvio").innerHTML = "";
 
-  if (document.getElementById("codigoPostal").value === "") {
-    document.getElementById("alertaCodigoPostal").innerHTML = "Por favor, introduzca su código postal"
-  } else document.getElementById("alertaCodigoPostal").innerHTML = "";
+    if (document.getElementById("departamento").value === "") {
+      document.getElementById("alertaDepartamento").innerHTML = "Por favor, introduzca su departamento"
+    } else document.getElementById("alertaDepartamento").innerHTML = "";
 
+    if (document.getElementById("codigoPostal").value === "") {
+      document.getElementById("alertaCodigoPostal").innerHTML = "Por favor, introduzca su código postal"
+    } else document.getElementById("alertaCodigoPostal").innerHTML = "";
+  }
 }
 
 function validarFormulario() { //muchas condciones para que haga lo necesario
