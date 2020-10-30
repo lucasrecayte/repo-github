@@ -40,29 +40,101 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
       <div class="btn-group">
-        <a type="button" id= "nombreUsuario" class="py-2 px-2 d-none d-md-inline-block" style ="color:white" href=""></a>
-        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a type="button" id="nombreUsuario" class="py-2 px-2 d-none d-md-inline-block" style="color:white" href=""></a>
+        <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login.html"  onclick="borrarNombreUsuarioDelStorage()">Cerrar sesión</a>
+          <a class="dropdown-item" href="login.html" onclick="borrarNombreUsuarioDelStorage()">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="text-center p-4">
+    <h2>Mi Perfil</h2>
   </div>
+  <main role="main" class="pb-5">
+    <div class="container" style="background-color:rgb(5, 155, 255); border: black 0.5px ridge">
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+          <div class="input-group mb-3 ">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><strong>Nombre:</strong></span>
+            </div>
+            <input type="text" class="form-control" id="nombrePerfil" aria-describedby="basic-addon1" >
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="input-group mb-3 ">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><strong>Apellido:</strong></span>
+            </div>
+            <input type="text" class="form-control" id="apellidoPerfil" aria-describedby="basic-addon1" >
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+          <div class="input-group mb-3 w-75 ">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="sexoPerfil"><strong>Sexo:</strong></label>
+            </div>
+            <select class="custom-select" id="sexoPerfil" >
+              <option selected>Elige...</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="input-group mb-3 w-50">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><strong>Edad:</strong></span>
+            </div>
+            <input type="number" min="1" class="form-control" id="edadPerfil" aria-describedby="basic-addon1" >
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+          <div class="input-group mb-3 w-85">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><strong>E-mail:</strong></span>
+            </div>
+            <input type="text" class="form-control" id="emailPerfil" aria-describedby="basic-addon1" >
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="guardarCambios()">Guardar cambios</button>
+        </div>
+        <div class="col-5">
+          <div class="input-group mb-3 ">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><strong>Teléfono de contacto:</strong></span>
+            </div>
+            <input type="text" min="1" class="form-control" id="telefonoPerfil" aria-describedby="basic-addon1" >
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <br>
+    </div>
+  </main>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
