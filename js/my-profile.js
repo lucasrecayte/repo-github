@@ -6,33 +6,94 @@ var perfil = {    //perfil a rellenar
     "email": "",
     "telefono": "",
 };
+function cargarPerfil() {
+    document.getElementById("alertaPerfil").innerHTML = ""; //para borrar mensaje de exito
+    
+    if (sessionStorage.getItem("perfil") == null) {   //inicialmente como no hay nada en el storage, cargo un perfil vacio
+        let JSONperfilVacio = JSON.stringify(perfil);
+        sessionStorage.setItem("perfil", JSONperfilVacio);
+    } else {  //para cuando se sale de la pestana mi perfil, no se pierdan los datos en los campos
 
-if (sessionStorage.getItem("perfil") == null) {   //inicialmente como no hay nada en el storage, cargo un perfil vacio
-    let JSONperfilVacio = JSON.stringify(perfil);
-    sessionStorage.setItem("perfil", JSONperfilVacio);
-} else {  //para cuando se sale de la pestana mi perfil, no se pierdan los datos en los campos
+        let perfilEnStorage = JSON.parse(sessionStorage.getItem("perfil"));  //transformo el JSON
 
-    perfilEnStorage = JSON.parse(sessionStorage.getItem("perfil"))  //transformo el JSON
+        document.getElementById("nombrePerfil").value = perfilEnStorage.nombre;
 
-    document.getElementById("nombrePerfil").value = perfilEnStorage.nombre;
+        document.getElementById("apellidoPerfil").value = perfilEnStorage.apellido;
 
-    document.getElementById("apellidoPerfil").value = perfilEnStorage.apellido;
+        if (perfilEnStorage.sexo != "") {
+            document.getElementById("sexoPerfil").value = perfilEnStorage.sexo;
+        };
 
-    if (perfilEnStorage.sexo != "") {
-        document.getElementById("sexoPerfil").value = perfilEnStorage.sexo;
+        document.getElementById("edadPerfil").value = perfilEnStorage.edad;
+
+        document.getElementById("emailPerfil").value = perfilEnStorage.email;
+
+        document.getElementById("telefonoPerfil").value = perfilEnStorage.telefono;
+    }
+}
+function guardarCambios() {
+    let val1, val2, val3, val4, val5, val6;
+
+    if (document.getElementById("nombrePerfil").value == "") {
+        document.getElementById("alertaNombrePerfil").innerHTML = "Por favor, ingrese su nombre";
+        val1 = false;
+    } else {
+        document.getElementById("alertaNombrePerfil").innerHTML = "";
+        val1 = true;
     };
 
-    document.getElementById("edadPerfil").value = perfilEnStorage.edad;
+    if (document.getElementById("apellidoPerfil").value == "") {
+        document.getElementById("alertaApellidoPerfil").innerHTML = "Por favor, ingrese su apellido";
+        val2 = false;
+    } else {
+        document.getElementById("alertaApellidoPerfil").innerHTML = "";
+        val2 = true;
+    };
 
-    document.getElementById("emailPerfil").value = perfilEnStorage.email;
+    if (document.getElementById("sexoPerfil").value == "Elige...") {
+        document.getElementById("alertaSexoPerfil").innerHTML = "Por favor, seleccione su sexo";
+        val3 = false;
+    } else {
+        document.getElementById("alertaSexoPerfil").innerHTML = "";
+        val3 = true;
+    };
 
-    document.getElementById("telefonoPerfil").value = perfilEnStorage.telefono;
+    if (document.getElementById("edadPerfil").value == "") {
+        document.getElementById("alertaEdadPerfil").innerHTML = "Por favor, ingrese su edad";
+        val4 = false;
+    } else {
+        document.getElementById("alertaEdadPerfil").innerHTML = "";
+        val4 = true;
+    };
+
+    if (document.getElementById("emailPerfil").value == "") {
+        document.getElementById("alertaEmailPerfil").innerHTML = "Por favor, ingrese su email";
+        val5 = false;
+    } else {
+        document.getElementById("alertaEmailPerfil").innerHTML = "";
+        val5 = true;
+    };
+
+    if (document.getElementById("telefonoPerfil").value == "") {
+        document.getElementById("alertaTelefonoPerfil").innerHTML = "Por favor,ingrese su teléfono";
+        val6 = false;
+    } else {
+        document.getElementById("alertaTelefonoPerfil").innerHTML = "";
+        val6 = true;
+    };
+
+    if (val1 && val2 && val3 && val4 && val5 && val6) {
+        subirAlStorage();
+        document.getElementById("alertaPerfil").innerHTML = `<div class="alert alert-success" align="center"> 
+        <strong>`+"¡Datos guardados con éxito!" +`</strong>`
+    };    //menaje de exito
+
 }
 
-function guardarCambios() {   //voy actualizando el perfil cuando el usuario ingresa
-                              // sus datos   
+function subirAlStorage() {   //voy actualizando el perfil cuando el usuario ingresa todos
+    // sus datos   
 
-    perfil.nombre = document.getElementById("nombrePerfil").value;  
+    perfil.nombre = document.getElementById("nombrePerfil").value;
     perfil.apellido = document.getElementById("apellidoPerfil").value;
 
     if (document.getElementById("sexoPerfil").value != "Elige...") {
@@ -50,10 +111,33 @@ function guardarCambios() {   //voy actualizando el perfil cuando el usuario ing
     sessionStorage.setItem("perfil", JSONperfil);
 }
 
+function reestablecer() {
+    document.getElementById("alertaPerfil").innerHTML = ""; //para borrar mensaje de exito
+    document.getElementById("nombrePerfil").value = "";
+    document.getElementById("apellidoPerfil").value ="";
+    document.getElementById("sexoPerfil").value = "Elige...";
+    document.getElementById("edadPerfil").value = "";
+    document.getElementById("emailPerfil").value = ""
+    document.getElementById("telefonoPerfil").value = "";
+
+    let perfilEnStorageABorrar = JSON.parse(sessionStorage.getItem("perfil"));  //transformo el JSON
+
+    perfilEnStorageABorrar.nombre = "";
+    perfilEnStorageABorrar.apellido = "";
+    perfilEnStorageABorrar.sexo = "";
+    perfilEnStorageABorrar.edad = "";
+    perfilEnStorageABorrar.email = "";
+    perfilEnStorageABorrar.telefono = "";
+
+    let JSONperfilEnStorageABorrar = JSON.stringify(perfilEnStorageABorrar); //transformo a formato JSON
+    sessionStorage.setItem("perfil",JSONperfilEnStorageABorrar);     //subo perfil vacio
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
+    cargarPerfil()
 
 });

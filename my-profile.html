@@ -64,7 +64,7 @@
       <br>
       <div class="row">
         <div class="col-2">
-          
+
           <a href="https://ibb.co/ZgsGFNb"><img src="https://i.ibb.co/C9dmYWS/imagen-Perfil.jpg" alt="imagen-Perfil"
               class="img-responsive" style="width: 100%; height: 150px; float: right;"></a>
         </div>
@@ -78,6 +78,7 @@
                 </div>
                 <input type="text" class="form-control" id="nombrePerfil" aria-describedby="basic-addon1">
               </div>
+              <span class="alert-danger" style="color:red" id="alertaNombrePerfil"></span>
             </div>
             <div class="col-5">
               <div class="input-group mb-3 ">
@@ -86,6 +87,7 @@
                 </div>
                 <input type="text" class="form-control" id="apellidoPerfil" aria-describedby="basic-addon1">
               </div>
+              <span class="alert-danger" style="color:red" id="alertaApellidoPerfil"></span>
             </div>
             <div class="col-1"></div>
           </div>
@@ -104,6 +106,7 @@
                   <option value="Otro">Otro</option>
                 </select>
               </div>
+              <span class="alert-danger" style="color:red" id="alertaSexoPerfil"></span>
             </div>
             <div class="col-5">
               <div class="input-group mb-3 w-50">
@@ -112,6 +115,7 @@
                 </div>
                 <input type="number" min="1" class="form-control" id="edadPerfil" aria-describedby="basic-addon1">
               </div>
+              <span class="alert-danger" style="color:red" id="alertaEdadPerfil"></span>
             </div>
             <div class="col-1"></div>
           </div>
@@ -125,9 +129,12 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><strong>E-mail:</strong></span>
                 </div>
-                <input type="text" class="form-control" id="emailPerfil" aria-describedby="basic-addon1">
+                <input type="text" class="form-control email" id="emailPerfil" aria-describedby="basic-addon1">
               </div>
+              <span class="alert-danger" style="color:red" id="alertaEmailPerfil"></span>
+              <br>
               <button type="button" class="btn btn-secondary" onclick="guardarCambios()">Guardar cambios</button>
+              <button type="button" class="btn btn-danger" onclick="reestablecer()">Reestablecer</button>
             </div>
             <div class="col-5">
               <div class="input-group mb-3 ">
@@ -136,6 +143,7 @@
                 </div>
                 <input type="text" min="1" class="form-control" id="telefonoPerfil" aria-describedby="basic-addon1">
               </div>
+              <span class="alert-danger" style="color:red" id="alertaTelefonoPerfil"></span>
             </div>
             <div class="col-1"></div>
           </div>
@@ -145,6 +153,9 @@
       <br>
     </div>
   </main>
+  <div id="alertaPerfil">  <!--para los mensajes en pantalla-->
+
+  </div>
 
   <footer class="text-muted bg-light">
     <div class="container">
