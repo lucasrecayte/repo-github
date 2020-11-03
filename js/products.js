@@ -1,6 +1,6 @@
 
-var ProductsArray = [];
 var ProductsArrayInicial = []; //para tener siempre cargado el array inicial
+var ProductsArray = [];
 
 function listaProductosCuadricula(array) {
     let htmlContentToAppend = "";
@@ -13,7 +13,7 @@ function listaProductosCuadricula(array) {
           <h3 class="m-3">`+ product.name + `</h3>
           <div class="card-body ">
             <p class="card-text">` + product.description + `</p>
-            <p>` + `Costo:` + `  ` + product.cost + `  ` + product.currency + `</p>
+            <p>` + `Costo: ` + product.currency + `  ` + product.cost + `</p>
             <small class="text-muted">` + product.soldCount + ` vendidos</small>
           </div>
          
@@ -60,7 +60,7 @@ function ordenarPorRelevanciaDesc() {
 function filtrarPorPrecio() {
     if (document.getElementById("min").value == "" || document.getElementById("max").value == "") {
         document.getElementById("alertaproductos").innerHTML = `<div class="alert alert-danger" align="center">
-      <strong> ¡Por favor, ingrese precios máximo y mínimo!
+      <strong> ¡Por favor, ingrese precios mínimo y máximo!
   </strong> 
 </div>`
 
