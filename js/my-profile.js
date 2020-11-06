@@ -8,7 +8,7 @@ var perfil = {    //perfil a rellenar
 };
 function cargarPerfil() {
     document.getElementById("alertaPerfil").innerHTML = ""; //para borrar mensaje de exito
-    
+
     if (sessionStorage.getItem("perfil") == null) {   //inicialmente como no hay nada en el storage, cargo un perfil vacio
         let JSONperfilVacio = JSON.stringify(perfil);
         sessionStorage.setItem("perfil", JSONperfilVacio);
@@ -113,7 +113,7 @@ function subirAlStorage() {   //voy actualizando el perfil cuando el usuario ing
 
 function reestablecer() {
     document.getElementById("alertaPerfil").innerHTML = ""; //para borrar mensaje de exito
-    document.getElementById("nombrePerfil").value = "";
+    document.getElementById("nombrePerfil").value = "";     // borro campos mostrados en pantalla
     document.getElementById("apellidoPerfil").value ="";
     document.getElementById("sexoPerfil").value = "Elige...";
     document.getElementById("edadPerfil").value = "";
@@ -122,7 +122,7 @@ function reestablecer() {
 
     let perfilEnStorageABorrar = JSON.parse(sessionStorage.getItem("perfil"));  //transformo el JSON
 
-    perfilEnStorageABorrar.nombre = "";
+    perfilEnStorageABorrar.nombre = "";        //borro todo el perfil en el sessionstorage
     perfilEnStorageABorrar.apellido = "";
     perfilEnStorageABorrar.sexo = "";
     perfilEnStorageABorrar.edad = "";
