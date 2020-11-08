@@ -9,12 +9,12 @@ var perfil = {    //perfil a rellenar
 function cargarPerfil() {
     document.getElementById("alertaPerfil").innerHTML = ""; //para borrar mensaje de exito
 
-    if (sessionStorage.getItem("perfil") == null) {   //inicialmente como no hay nada en el storage, cargo un perfil vacio
+    if (localStorage.getItem("perfil") == null) {   //inicialmente como no hay nada en el storage, cargo un perfil vacio
         let JSONperfilVacio = JSON.stringify(perfil);
-        sessionStorage.setItem("perfil", JSONperfilVacio);
+        localStorage.setItem("perfil", JSONperfilVacio);
     } else {  //para cuando se sale de la pestana mi perfil, no se pierdan los datos en los campos
 
-        let perfilEnStorage = JSON.parse(sessionStorage.getItem("perfil"));  //transformo el JSON
+        let perfilEnStorage = JSON.parse(localStorage.getItem("perfil"));  //transformo el JSON
 
         document.getElementById("nombrePerfil").value = perfilEnStorage.nombre;
 
@@ -108,7 +108,7 @@ function subirAlStorage() {   //voy actualizando el perfil cuando el usuario ing
 
     let JSONperfil = JSON.stringify(perfil);  //transformo el perfil a formato JSON
 
-    sessionStorage.setItem("perfil", JSONperfil);
+    localStorage.setItem("perfil", JSONperfil);
 }
 
 function reestablecer() {
@@ -120,9 +120,9 @@ function reestablecer() {
     document.getElementById("emailPerfil").value = ""
     document.getElementById("telefonoPerfil").value = "";
 
-    let perfilEnStorageABorrar = JSON.parse(sessionStorage.getItem("perfil"));  //transformo el JSON
+    let perfilEnStorageABorrar = JSON.parse(localStorage.getItem("perfil"));  //transformo el JSON
 
-    perfilEnStorageABorrar.nombre = "";        //borro todo el perfil en el sessionstorage
+    perfilEnStorageABorrar.nombre = "";        //borro todo el perfil en el localstorage
     perfilEnStorageABorrar.apellido = "";
     perfilEnStorageABorrar.sexo = "";
     perfilEnStorageABorrar.edad = "";
@@ -130,7 +130,7 @@ function reestablecer() {
     perfilEnStorageABorrar.telefono = "";
 
     let JSONperfilEnStorageABorrar = JSON.stringify(perfilEnStorageABorrar); //transformo a formato JSON
-    sessionStorage.setItem("perfil",JSONperfilEnStorageABorrar);     //subo perfil vacio
+    localStorage.setItem("perfil",JSONperfilEnStorageABorrar);     //subo perfil vacio
 }
 
 
