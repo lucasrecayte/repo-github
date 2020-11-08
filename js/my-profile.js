@@ -85,14 +85,13 @@ function guardarCambios() {
     if (val1 && val2 && val3 && val4 && val5 && val6) {
         subirAlStorage();
         document.getElementById("alertaPerfil").innerHTML = `<div class="alert alert-success" align="center"> 
-        <strong>`+"¡Datos guardados con éxito!" +`</strong>`
-    };    //menaje de exito
+        <strong>`+ "¡Datos guardados con éxito!" + `</strong>`
+    };    //mensaje de exito
 
 }
 
 function subirAlStorage() {   //voy actualizando el perfil cuando el usuario ingresa todos
-    // sus datos   
-
+                              // sus datos   
     perfil.nombre = document.getElementById("nombrePerfil").value;
     perfil.apellido = document.getElementById("apellidoPerfil").value;
 
@@ -114,7 +113,7 @@ function subirAlStorage() {   //voy actualizando el perfil cuando el usuario ing
 function reestablecer() {
     document.getElementById("alertaPerfil").innerHTML = ""; //para borrar mensaje de exito
     document.getElementById("nombrePerfil").value = "";     // borro campos mostrados en pantalla
-    document.getElementById("apellidoPerfil").value ="";
+    document.getElementById("apellidoPerfil").value = "";
     document.getElementById("sexoPerfil").value = "Elige...";
     document.getElementById("edadPerfil").value = "";
     document.getElementById("emailPerfil").value = ""
@@ -130,7 +129,7 @@ function reestablecer() {
     perfilEnStorageABorrar.telefono = "";
 
     let JSONperfilEnStorageABorrar = JSON.stringify(perfilEnStorageABorrar); //transformo a formato JSON
-    localStorage.setItem("perfil",JSONperfilEnStorageABorrar);     //subo perfil vacio
+    localStorage.setItem("perfil", JSONperfilEnStorageABorrar);     //subo perfil vacio
 }
 
 
